@@ -1,0 +1,109 @@
+class UTY(object):
+    def __init__(self, status, nama, prodi):
+        self.nama = nama
+        self.status = status
+        self.prodi = prodi
+
+    def Semangat(self):
+        print('Indonesia Maju Indonesia Tumbuh UTY Hebat')
+
+    def Info(self):
+        print("-- INFORMASI -- ")
+        print("Nama " + self.nama)
+        print("Status :" + self.status)
+        print("Program Studi: " + self.prodi)
+
+class Dosen(UTY):
+    def __init__(self, status, nama, prodi, nip):
+        super().__init__(status, nama, prodi)
+        self.nip = nip
+
+    def SemangatDosen(self):
+        self.Semangat() #ambil dari kelas UTY
+        print("Dosen bermartabat")
+
+    def InfoDosen(self):
+        self.Info()
+        print("NIP: " + str(self.nip))
+
+class Mahasiswa(UTY):
+    def __init__(self, status, nama, prodi, nim):
+        super().__init__(status, nama, prodi)
+        self.nim = nim
+
+    def SemangatMahasiswa(self):
+        self.Semangat() #ambil dari kelas UTY
+        print("Mahasiswa Yang Disiplin")
+
+    def InfoMahasiswa(self):
+        self.Info()
+        print("NIM: " + str(self.nim))
+
+dosen = Dosen("Dosen", "Thomas", "Informatika", 1235678)
+dosen.InfoDosen()
+dosen.SemangatDosen()
+mahasiswa = Mahasiswa("Mahasiswa", "Aryan Fitrah Adillah", "Informatika", 5220411091)
+mahasiswa.InfoMahasiswa()
+mahasiswa.SemangatMahasiswa()
+
+class Komputer:
+    def __init__(self, nama, pabrikan, harga, jenis):
+        self.nama = nama
+        self.pabrikan = pabrikan
+        self.harga = harga
+        self.jenis = jenis
+
+    def Info(self):
+        print("-- INFORMASI--")
+        print("Nama : " + self.nama)
+        print("Pabrikan : " + self.pabrikan)
+        print(f"Harga : Rp.{self.harga:,.2f}")
+        print("Jenis : " + self.jenis)
+
+class Processor(Komputer):
+    def __init__(self, nama, pabrikan, harga, jenis, tipe, frekuensi, cache):
+        super().__init__(nama, pabrikan, harga, jenis)
+        self.tipe = tipe
+        self.frekuensi = frekuensi
+        self.cache = cache
+    
+    def InfoProcessor(self):
+        self.Info()
+        print("Tipe Processor : " + self.tipe)
+        print("Frekuensi Processor : " + self.frekuensi)
+        print("Kapasitas Cache Processor : " + self.cache)
+
+class RAM(Komputer):
+    def __init__(self, nama, pabrikan, harga, jenis, kapasitas, frekuensi, voltage):
+        super().__init__(nama, pabrikan, harga, jenis)
+        self.kapasitas = kapasitas
+        self.frekuensi = frekuensi
+        self.voltage = voltage
+
+    def InfoRAM(self):
+        self.Info()
+        print("Kapasitas RAM : " + self.kapasitas)
+        print("Frekuensi RAM : " + self.frekuensi)
+        print("Voltage Dari RAM : " + self.voltage)
+
+class Hardisk(Komputer):
+    def __init__(self, nama, pabrikan, harga, jenis, kapasitas, kecepatan, interface):
+        super().__init__(nama, pabrikan, harga, jenis)
+        self.kapasitas = kapasitas
+        self.kecepatan = kecepatan
+        self.interface = interface
+    
+    def InfoHardisk(self):
+        self.Info()
+        print("Kapasitas Hardisk : " + self.kapasitas)
+        print("Kecepatan Hardisk : " + self.kecepatan)
+        print("Interface Hardisk : " + self.interface)
+
+processor = Processor("	Prosesor Intel®", "intel", 10000000, "Core™ i9", "Generasi ke-13", "6.00 GHz", "36 MB Intel® Smart Cache")
+processor.InfoProcessor()
+
+ram = RAM("RAM Crosshair Vengeance", "Crosshair", 1500000, "DDR 4", "8GB", "2133 MHz", "1.2 V")
+ram.InfoRAM()
+
+hardisk = Hardisk("HDD Seagate", "Seagate Technology PLC", 1115000, "Barracuda Pro", "1TB", "7200RPM", "SATA 3.0")
+hardisk.InfoHardisk()
